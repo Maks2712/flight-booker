@@ -1,0 +1,16 @@
+
+
+
+<h1 class="title-lg mt-lg mb-lg">Examples</h1>
+<div id="examples" class= "mb-lg">
+  <% @examples.each do |example| %>
+  <!-- <%= render example %> -->
+  <div class="container">
+    <%= link_to "Show this example", example, class:'button' %>
+    <%= button_to fa_icon('trash-o'), '#'%>
+  </div>
+  <% end %>
+</div>
+  <%= button_to fa_icon('trash-o'), '#'%>
+
+<%= link_to "New example", new_example_path %>

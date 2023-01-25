@@ -1,0 +1,19 @@
+<h1>Flights#index</h1>
+<p>Find me in app/views/flights/index.html.erb</p>
+
+ <select name="flight_id">
+    <%= @flights.each do |flight| %>
+      <option value="<%= flight.id %>"><%= flight.start_datetime %></option>
+    <% end %>
+  </select>
+
+  <%= select(:flight, :airport_id, @departure_airport) %>
+  <%= select(:flight, :airport_id, @arrival_airport) %>
+
+<% @flights.each do |flight| %>
+    <li>
+      <%= link_to "#{flight.start_datetime} from #{flight.departure_airport_id} to #{flight.arrival_airport_id}", "#" %>
+    </li>
+  <% end %>
+
+
