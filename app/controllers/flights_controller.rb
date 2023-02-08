@@ -1,9 +1,11 @@
 class FlightsController < ApplicationController
-  def index
-    @flights=Flight.all
-    @departure_airport = Airport.all.map{ |a| [ a.code, a.id ] }
+  #before_action :flight_params
+  def index 
+    #@flights=Flight.all
+    @departure_airport = Airport.all.map{|a| [a.code, a.id]}
     @arrival_airport = Airport.all.map{ |a| [ a.code, a.id ] }
     @flight_date = Flight.all.map{ |a| [ a.start_datetime, a.id ] }
+   @flights = Flight.where("arrival_airport_id = ? AND departure_airport_id = ?", params[:flight][:arrival_airport_id],params[:flight][:departure_airport_id])
   end
   
 private
