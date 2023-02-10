@@ -1,30 +1,27 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
-<!--
- <select name="flight_id">
-    <%= @flights.each do |flight| %>
-      <option value="<%= flight.id %>"><%= flight.start_datetime %></option>
-    <% end %>
-  </select>
 
-  <%= select(:flight, :airport_id, @departure_airport) %>
-  <%= select(:flight, :airport_id, @arrival_airport) %>
 
-<% @flights.each do |flight| %>
-    <li>
-      <%= link_to "#{flight.start_datetime} from #{flight.departure_airport_id} to #{flight.arrival_airport_id}", "#" %>
-    </li>
-  <% end %>
--->
-
-<%= form_with method: :get do |f| %>
+<%= form_with model: @flight, method: :get do |f| %>
    
    <%= select(:flight, :arrival_airport_id, @arrival_airport) %>
-    <%= select(:flight, :departure_airport_id, @departure_airport) %>
-    <%= f.submit %>
+   <%= select(:flight, :departure_airport_id, @departure_airport) %>
+   <%= f.submit %>
 <% end %>
 
- <%= @flights.each do |f| %>
-    <%= f.flight_duration%>
-  <% end %>
+ 
+ 
+<br>
+<hr>
+<%= @flights.each do |f| %>
+      <%= f.id%>
+      <hr>
+<% end %>
+ПОЧЕМУ ТУТ ВЫЛАЗИТ ЭТО???))
 
+[#<Flight id: 3, start_datetime: "2023-03-22 00:00:00.000000000 +0000", 
+flight_duration: "2000-01-01 05:00:00.000000000 +0000", 
+created_at: "2023-01-25 13:16:25.901474000 +0000", 
+updated_at: "2023-01-25 13:16:25.901474000 +0000",
+departure_airport_id: 3, 
+arrival_airport_id: 1>] 
